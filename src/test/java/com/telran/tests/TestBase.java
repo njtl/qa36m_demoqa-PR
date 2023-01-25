@@ -10,6 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -23,8 +24,8 @@ public class TestBase {
     public void init() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://demoqa.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://demoqa.com/login");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
 
