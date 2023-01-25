@@ -32,6 +32,7 @@ public class PageBase {
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(" + x + "," + y + ")");
+        this.wait(500);
         click(element);
     }
 
@@ -40,6 +41,14 @@ public class PageBase {
             clickWithJSExecutor(element, x, y);
             element.clear();
             element.sendKeys(text);
+        }
+    }
+
+    public void wait(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

@@ -32,4 +32,19 @@ public class LoginPage extends PageBase {
     public String getErrorMessage() {
         return errorMsg.getText();
     }
+
+    @FindBy(id="submit")
+    WebElement logoutButton;
+
+    public LoginPage logOut(){
+        click(logoutButton);
+        return this;
+    }
+
+    @FindBy(xpath="/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[1]/h5")
+    WebElement welcomeMessage;
+
+    public String getWelcomeMessage(){
+        return welcomeMessage.getText();
+    }
 }
