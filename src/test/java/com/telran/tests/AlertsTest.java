@@ -19,6 +19,16 @@ public class AlertsTest extends TestBase {
         new AlertsPage(driver).clickOnSimpleAlert();
     }
 
+    @Test
+    public void simpleAlert5Secs() {
+        new AlertsPage(driver).clickOnSimpleAlertWithTimer();
+    }
 
+    @Test
+    public void confirmBoxTest() {
+        new AlertsPage(driver).clickOnConfirmBox("OK");
+        new AlertsPage(driver).clickOnConfirmBox("Cancel");
+
+    }
 
 }
