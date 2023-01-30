@@ -1,7 +1,8 @@
-package com.telran.tests;
+package com.telran.tests.BookStoreTests;
 
-import com.telran.pages.BookStorePage;
+import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.HomePage;
+import com.telran.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

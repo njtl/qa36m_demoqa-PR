@@ -1,6 +1,11 @@
-package com.telran.tests;
+package com.telran.tests.BookStoreTests;
 
 import com.telran.pages.*;
+import com.telran.pages.BookStore.BookStorePage;
+import com.telran.pages.BookStore.LoginPage;
+import com.telran.pages.BookStore.ProfilePage;
+import com.telran.pages.data.LoginData;
+import com.telran.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -18,7 +23,7 @@ public class BookStoreLoginTest extends TestBase {
 
     @Test
     public void positiveAuthTest() {
-        new LoginPage(driver).login("imaksimov2", "!m@ksimoV2");
+        new LoginPage(driver).login(LoginData.USERNAME, LoginData.PASSWORD);
         Assert.assertEquals(new ProfilePage(driver).getUserNameValue(), "imaksimov2");
     }
 
@@ -31,7 +36,7 @@ public class BookStoreLoginTest extends TestBase {
 
     @Test
     public void logOutTest(){
-        new LoginPage(driver).login("imaksimov2", "!m@ksimoV2");
+        new LoginPage(driver).login(LoginData.USERNAME, LoginData.PASSWORD);
         new LoginPage(driver).logOut();
         Assert.assertTrue(new LoginPage(driver).getWelcomeMessage().contains("Login in Book Store"));
     }

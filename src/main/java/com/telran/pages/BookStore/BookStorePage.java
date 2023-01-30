@@ -1,10 +1,9 @@
-package com.telran.pages;
+package com.telran.pages.BookStore;
 
+import com.telran.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Collection;
 
 public class BookStorePage extends PageBase {
 
@@ -26,9 +25,10 @@ public class BookStorePage extends PageBase {
     @FindBy(id="searchBox")
     WebElement searchBox;
 
-    public void searchBook(String web) {
+    public BookStorePage searchBook(String web) {
         type(searchBox, web);
         wait(500);
+        return this;
     }
 
     @FindBy(xpath = "/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div/div[2]/div/span/a")
@@ -36,5 +36,20 @@ public class BookStorePage extends PageBase {
 
     public String getFirstBookTitle() {
         return firstBook.getText();
+    }
+
+    public BookStorePage openFirstBook() {
+        click(firstBook);
+        return this;
+    }
+
+    @FindBy(id="addNewRecordButton")
+    WebElement addNewRecordButton;
+
+    public BookStorePage addToYourCollection() {
+        clickWithJSExecutor(addNewRecordButton, 0, 250);
+        wait(1000);
+        driver.switchTo().alert().accept();
+        return this;
     }
 }

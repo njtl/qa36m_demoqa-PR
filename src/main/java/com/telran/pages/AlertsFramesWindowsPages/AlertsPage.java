@@ -1,15 +1,14 @@
-package com.telran.pages;
+package com.telran.pages.AlertsFramesWindowsPages;
 
+import com.telran.pages.PageBase;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Collection;
 
 public class AlertsPage extends PageBase {
     public AlertsPage(WebDriver driver) {

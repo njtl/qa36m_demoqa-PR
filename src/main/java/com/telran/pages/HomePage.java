@@ -1,5 +1,7 @@
 package com.telran.pages;
 
+import com.telran.pages.AlertsFramesWindowsPages.AlertsPage;
+import com.telran.pages.BookStore.BookStorePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

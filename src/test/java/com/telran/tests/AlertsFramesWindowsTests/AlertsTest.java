@@ -1,8 +1,9 @@
-package com.telran.tests;
+package com.telran.tests.AlertsFramesWindowsTests;
 
-import com.telran.pages.AlertsPage;
+import com.telran.pages.AlertsFramesWindowsPages.AlertsPage;
 import com.telran.pages.HomePage;
 import com.telran.pages.SideMenu;
+import com.telran.tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
