@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Collection;
 
 public class AlertsPage extends PageBase {
     public AlertsPage(WebDriver driver) {
@@ -57,5 +58,29 @@ public class AlertsPage extends PageBase {
         }
 
         return this;
+    }
+
+    @FindBy(id="confirmResult")
+    WebElement confirmText;
+
+    public String getConfirmText() {
+        return confirmText.getText();
+    }
+
+    @FindBy(id="promtButton")
+    WebElement promtButton;
+    
+    public AlertsPage enterTextToPrompt(String name) {
+        clickWithJSExecutor(promtButton, 0, 200);
+        driver.switchTo().alert().sendKeys(name);
+        driver.switchTo().alert().accept();
+        return this;
+    }
+
+    @FindBy(id="promptResult")
+    WebElement promptResult;
+
+    public String getPromptResult() {
+        return promptResult.getText();
     }
 }
