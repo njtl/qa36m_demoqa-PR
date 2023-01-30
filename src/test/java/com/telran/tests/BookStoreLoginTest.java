@@ -32,7 +32,6 @@ public class BookStoreLoginTest extends TestBase {
     @Test
     public void logOutTest(){
         new LoginPage(driver).login("imaksimov2", "!m@ksimoV2");
-        new SideMenu(driver).openLoginPage();
         new LoginPage(driver).logOut();
         Assert.assertTrue(new LoginPage(driver).getWelcomeMessage().contains("Login in Book Store"));
     }

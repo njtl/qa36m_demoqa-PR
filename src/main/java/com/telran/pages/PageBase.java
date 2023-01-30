@@ -2,6 +2,7 @@ package com.telran.pages;
 
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
@@ -50,5 +51,9 @@ public class PageBase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void clickWithAction(Keys keyboardBtn){
+        new Actions(driver).keyDown(keyboardBtn).perform();
     }
 }

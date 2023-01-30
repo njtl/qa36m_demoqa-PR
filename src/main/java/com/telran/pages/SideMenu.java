@@ -17,4 +17,12 @@ public class SideMenu extends PageBase {
         wait(500);
         return new LoginPage(driver);
     }
+
+    @FindBy(xpath="/html/body/div[2]/div/div/div[2]/div[1]/div/div/div[3]/div/ul/li[2]")
+    WebElement alertsPageLink;
+
+    public AlertsPage openAlertsPage() {
+        clickWithJSExecutor(alertsPageLink, 0, 200);
+        return new AlertsPage(driver);
+    }
 }

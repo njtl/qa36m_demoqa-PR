@@ -17,4 +17,13 @@ public class HomePage extends PageBase {
 
         return new BookStorePage(driver);
     }
+
+    @FindBy(xpath="//*[@id=\"app\"]/div/div/div[2]/div/div[3]/div/div[3]")
+    WebElement alertsFrameWindowsLink;
+
+    public AlertsPage openAlertsFrameWindowsPage() {
+        click(alertsFrameWindowsLink);
+        return new AlertsPage(driver);
+
+    }
 }
