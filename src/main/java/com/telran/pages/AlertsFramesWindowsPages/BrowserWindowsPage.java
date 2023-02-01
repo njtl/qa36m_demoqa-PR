@@ -38,4 +38,22 @@ public class BrowserWindowsPage extends PageBase {
     public String getNewPageHeading(){
         return newPageHeading.getText();
     }
+
+    public BrowserWindowsPage openNewWindow() {
+
+        String thisWindow = driver.getWindowHandle();
+
+        click(newWindowButton);
+
+        for (String windowH : driver.getWindowHandles())
+        {
+            System.out.println(windowH);
+            if (!thisWindow.contentEquals(windowH))
+            {
+                driver.switchTo().window(windowH);
+                break;
+            }
+        }
+        return this;
+    }
 }

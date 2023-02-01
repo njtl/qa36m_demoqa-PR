@@ -22,4 +22,10 @@ public class BrowserWindowsTest extends TestBase {
         new BrowserWindowsPage(driver).openNewTab();
         Assert.assertTrue( new BrowserWindowsPage(driver).getNewPageHeading().contains("sample") );
     }
+
+    @Test
+    public void clickOnNewWindowTest() {
+        new BrowserWindowsPage(driver).openNewWindow();
+        Assert.assertTrue( new BrowserWindowsPage(driver).getNewPageHeading().contains("sample") );
+    }
 }
