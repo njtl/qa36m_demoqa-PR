@@ -45,7 +45,17 @@ public class ProfilePage extends PageBase {
         click(deleteButton);
         wait(1000);
         click(closeSmallButton);
+        wait(1000);
         driver.switchTo().alert().accept();
         return this;
+    }
+
+    @FindBy(xpath = "//button[.='Log out']")
+    WebElement logoutButton;
+
+    public LoginPage logOut() {
+        logoutButton.click();
+        return new LoginPage(driver);
+
     }
 }

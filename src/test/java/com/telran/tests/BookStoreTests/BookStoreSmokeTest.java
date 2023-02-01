@@ -7,6 +7,7 @@ import com.telran.pages.HomePage;
 import com.telran.pages.SideMenu;
 import com.telran.pages.data.LoginData;
 import com.telran.tests.TestBase;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -24,7 +25,9 @@ public class BookStoreSmokeTest extends TestBase {
     public void bookStoreSmokeTest(){
         String title = "Web";
         new LoginPage(driver).login(LoginData.USERNAME, LoginData.PASSWORD);
-        new BookStorePage(driver).searchBook(title).openFirstBook().addToYourCollection();
+        new SideMenu(driver).openBookStorePage();
+        new BookStorePage(driver).searchBook(title).openFirstBook();
+        new BookStorePage(driver).addToYourCollection();
         new SideMenu(driver).openProfilePage();
         Assert.assertTrue( new ProfilePage(driver).getFirstBookTitle().contains(title) );
     }

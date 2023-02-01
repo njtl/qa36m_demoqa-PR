@@ -1,6 +1,7 @@
 package com.telran.pages;
 
 import com.telran.pages.AlertsFramesWindowsPages.AlertsPage;
+import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
 import org.openqa.selenium.WebDriver;
@@ -35,5 +36,14 @@ public class SideMenu extends PageBase {
     public ProfilePage openProfilePage() {
         clickWithJSExecutor(profilePageLink, 0,300);
         return new ProfilePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Book Store']")
+    WebElement bookStorePageLink;
+
+    public BookStorePage openBookStorePage() {
+        wait(1000);
+        clickWithJSExecutor(bookStorePageLink, 0, 500);
+        return new BookStorePage(driver);
     }
 }

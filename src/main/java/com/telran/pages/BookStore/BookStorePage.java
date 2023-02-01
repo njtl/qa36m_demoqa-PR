@@ -40,14 +40,17 @@ public class BookStorePage extends PageBase {
 
     public BookStorePage openFirstBook() {
         click(firstBook);
+        wait(5000);
         return this;
     }
 
-    @FindBy(id="addNewRecordButton")
+    @FindBy(xpath="/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[2]/div[9]/div[2]/button")
     WebElement addNewRecordButton;
 
     public BookStorePage addToYourCollection() {
-        clickWithJSExecutor(addNewRecordButton, 0, 250);
+        hideAds();
+        wait(1000);
+        clickWithJSExecutor(addNewRecordButton, 0, 350);
         wait(1000);
         driver.switchTo().alert().accept();
         return this;

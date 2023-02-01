@@ -20,4 +20,5 @@ public class BookStoreTest extends TestBase {
         new BookStorePage(driver).searchBook("Web");
         Assert.assertTrue(new BookStorePage(driver).getFirstBookTitle().contains("Web"));
     }
+
 }

@@ -3,6 +3,7 @@ package com.telran.pages;
 import com.google.common.io.Files;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
@@ -55,5 +56,15 @@ public class PageBase {
 
     public void clickWithAction(Keys keyboardBtn){
         new Actions(driver).keyDown(keyboardBtn).perform();
+    }
+
+    public void hideAds(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('adplus-anchor').style.display='none'");
+    }
+
+    public void removeAds(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('adplus-anchor').remove()");
     }
 }
