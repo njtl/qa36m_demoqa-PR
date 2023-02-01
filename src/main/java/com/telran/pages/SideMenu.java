@@ -1,6 +1,7 @@
 package com.telran.pages;
 
 import com.telran.pages.AlertsFramesWindowsPages.AlertsPage;
+import com.telran.pages.AlertsFramesWindowsPages.BrowserWindowsPage;
 import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
@@ -45,5 +46,12 @@ public class SideMenu extends PageBase {
         wait(1000);
         clickWithJSExecutor(bookStorePageLink, 0, 500);
         return new BookStorePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Browser Windows']")
+    WebElement browserWindowsLink;
+    public BrowserWindowsPage openBrowserWindowsPage() {
+        click(browserWindowsLink);
+        return new BrowserWindowsPage(driver);
     }
 }

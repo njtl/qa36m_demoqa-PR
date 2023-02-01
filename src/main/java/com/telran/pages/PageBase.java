@@ -66,5 +66,6 @@ public class PageBase {
     public void removeAds(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('adplus-anchor').remove()");
+        js.executeScript("document.getElementById('widget-pl-272943').remove()");
     }
 }
