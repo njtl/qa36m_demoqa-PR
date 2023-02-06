@@ -28,4 +28,11 @@ public class HomePage extends PageBase {
         return new AlertsPage(driver);
 
     }
+
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div/div[4]")
+    WebElement widgetsLink;
+    public SideMenu openWidgets() {
+        click(widgetsLink);
+        return new SideMenu(driver);
+    }
 }
