@@ -3,6 +3,7 @@ package com.telran.pages.AlertsFramesWindowsPages;
 import com.telran.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v106.browser.Browser;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -55,5 +56,25 @@ public class BrowserWindowsPage extends PageBase {
             }
         }
         return this;
+    }
+
+    public BrowserWindowsPage closeWindow(){
+        driver.close();
+        return this;
+    }
+
+    public BrowserWindowsPage openNewWindowMessage() {
+        click(newMessageWindowButton);
+        wait(1000);
+        List<String> allWindows = new ArrayList<>(driver.getWindowHandles());
+        String tabName = allWindows.get(1);
+        driver.switchTo().window(tabName);
+        return this;
+    }
+    @FindBy(xpath = "/html/body")
+    WebElement messageWindowBody;
+
+    public String getMessageWindowBody() {
+        return messageWindowBody.getText();
     }
 }

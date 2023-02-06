@@ -2,6 +2,8 @@ package com.telran.pages;
 
 import com.telran.pages.AlertsFramesWindowsPages.AlertsPage;
 import com.telran.pages.AlertsFramesWindowsPages.BrowserWindowsPage;
+import com.telran.pages.AlertsFramesWindowsPages.FramesPage;
+import com.telran.pages.AlertsFramesWindowsPages.NestedFramesPage;
 import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
@@ -53,5 +55,21 @@ public class SideMenu extends PageBase {
     public BrowserWindowsPage openBrowserWindowsPage() {
         click(browserWindowsLink);
         return new BrowserWindowsPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Frames']")
+    WebElement framesPage;
+
+    public FramesPage openFramesPage() {
+        clickWithJSExecutor(framesPage, 0, 250);
+        return new FramesPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Nested Frames']")
+    WebElement nestedFramesPage;
+
+    public NestedFramesPage openNestedFramesPage() {
+        clickWithJSExecutor(nestedFramesPage, 0, 250);
+        return new NestedFramesPage(driver);
     }
 }
