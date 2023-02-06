@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Collection;
+import org.openqa.selenium.support.ui.Select;
 
 public class SelectMenuPage extends PageBase {
     public SelectMenuPage(WebDriver driver) {
@@ -50,4 +49,19 @@ public class SelectMenuPage extends PageBase {
         return selectValueOne.getText();
     }
 
+    //@FindBy(id="oldSelectMenu")
+    @FindBy(xpath="//*[@id='oldSelectMenu']")
+    WebElement oldSelectMenu;
+
+    public SelectMenuPage choseYellowFromOldStyleSelect() {
+        Select select = new Select(oldSelectMenu);
+        select.selectByValue("3");
+        return this;
+    }
+
+
+    public String getOldStyleSelectValueText() {
+        Select select = new Select(oldSelectMenu);
+        return select.getFirstSelectedOption().getText();
+    }
 }
