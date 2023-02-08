@@ -11,6 +11,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
+
 public class TextBoxTest extends TestBase {
 
     // Pre-conditions: Text Box page is opened from the home page and side menu
@@ -22,7 +25,7 @@ public class TextBoxTest extends TestBase {
 
     // Title: Check that div with 'output' displays correct data from the form input fields
     @Test
-    public void simpleFormSubmit() {
+    public void simpleFormSubmit() throws IOException, UnsupportedFlavorException {
 
         // Step 1: Fill in the full name input with John Doe value
         // Step 2: Fill in the email input with john@doe.com

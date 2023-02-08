@@ -8,6 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.IOException;
 import java.util.Collection;
 
 public class TextBoxPage extends PageBase {
@@ -31,7 +37,7 @@ public class TextBoxPage extends PageBase {
     WebElement submit;
 
 
-    public void fillAndSubmitForm() {
+    public void fillAndSubmitForm() throws IOException, UnsupportedFlavorException {
         hideAds();
 
         type(fullName, TextBoxData.FULLNAME);
@@ -44,8 +50,17 @@ public class TextBoxPage extends PageBase {
 
         action.keyDown(currentAddress, cmdCtrl).sendKeys("a").keyUp(cmdCtrl).perform();
         action.keyDown(cmdCtrl).sendKeys("c").keyUp(cmdCtrl).perform();
-        action.sendKeys(Keys.TAB);
-        action.keyDown(cmdCtrl).sendKeys("v").keyUp(cmdCtrl).perform();
+
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        Transferable contents = clipboard.getContents(null);
+
+        String result = (String)contents.getTransferData(DataFlavor.stringFlavor);
+
+        if (result == TextBoxData.ADDRESS)
+        {
+            action.sendKeys(Keys.TAB);
+            action.keyDown(cmdCtrl).sendKeys("v").keyUp(cmdCtrl).perform();
+        }
 
         clickWithJSExecutor(submit, 0, 150);
     }
@@ -54,6 +69,7 @@ public class TextBoxPage extends PageBase {
     WebElement output;
 
     public String checkSubmittedData() {
+        System.out.println(output.getText());
         return output.getText();
     }
 
@@ -61,7 +77,7 @@ public class TextBoxPage extends PageBase {
     WebElement permanentAddress;
 
     public String getPermanentAddress() {
-        System.out.println("Permanent address is " + permanentAddress.getText());
+        //System.out.println("Permanent address is " + permanentAddress.get());
         return permanentAddress.getText();
     }
 }
