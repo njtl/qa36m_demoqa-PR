@@ -68,4 +68,23 @@ public class PageBase {
         js.executeScript("document.getElementById('adplus-anchor').remove()");
         js.executeScript("document.getElementById('widget-pl-272943').remove()");
     }
+
+    public Keys getCmdCtrl()
+    {
+        Keys cmdCtrl = null;
+        String os = System.getProperty("os.name");
+        System.out.println(os);
+
+        if (os.startsWith("Win"))
+        {
+            cmdCtrl = Keys.CONTROL;
+            return cmdCtrl;
+        }
+        else if (os.startsWith("Mac"))
+        {
+            cmdCtrl = Keys.COMMAND;
+            return cmdCtrl;
+        }
+        return null;
+    }
 }

@@ -35,4 +35,13 @@ public class HomePage extends PageBase {
         click(widgetsLink);
         return new SideMenu(driver);
     }
+
+    @FindBy(xpath = "//*[@id=\"app\"]/div/div/div[2]/div/div[1]")
+    WebElement elementsPageLink;
+
+    public SideMenu openElements() {
+        click(elementsPageLink);
+        wait(2000);
+        return new SideMenu(driver);
+    }
 }

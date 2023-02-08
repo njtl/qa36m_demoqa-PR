@@ -7,6 +7,7 @@ import com.telran.pages.AlertsFramesWindowsPages.NestedFramesPage;
 import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
+import com.telran.pages.Elements.TextBoxPage;
 import com.telran.pages.Widgets.SelectMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -81,5 +82,13 @@ public class SideMenu extends PageBase {
         clickWithJSExecutor(selectMenuPageLink, 0, 400);
         wait(1000);
         return new SelectMenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Text Box']")
+    WebElement textBoxPageLink;
+
+    public TextBoxPage openTextBox() {
+        click(textBoxPageLink);
+        return new TextBoxPage(driver);
     }
 }
