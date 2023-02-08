@@ -9,6 +9,7 @@ import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
 import com.telran.pages.Elements.ButtonsPage;
 import com.telran.pages.Elements.TextBoxPage;
+import com.telran.pages.Elements.UploadAndDownloadPage;
 import com.telran.pages.Widgets.SelectMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -100,5 +101,14 @@ public class SideMenu extends PageBase {
         clickWithJSExecutor(buttonsPageLink, 0, 200);
         wait(1000);
         return new ButtonsPage(driver);
+    }
+
+
+    @FindBy(xpath = "//span[.='Upload and Download']")
+    WebElement uploadAndDownloadPageLink;
+
+    public UploadAndDownloadPage openUploadandDownloadPage() {
+        clickWithJSExecutor(uploadAndDownloadPageLink, 0, 300);
+        return new UploadAndDownloadPage(driver);
     }
 }

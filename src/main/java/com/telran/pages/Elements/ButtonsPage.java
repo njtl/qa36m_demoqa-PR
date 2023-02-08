@@ -44,7 +44,6 @@ public class ButtonsPage extends PageBase {
         return this;
     }
 
-
     public String getRCMsg() {
         return rightClickMessage.getText();
     }
