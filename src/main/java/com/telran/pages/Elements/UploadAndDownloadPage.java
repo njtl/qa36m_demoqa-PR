@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.File;
+import java.io.IOException;
 
 public class UploadAndDownloadPage extends PageBase {
     public UploadAndDownloadPage(WebDriver driver) {
@@ -21,7 +22,8 @@ public class UploadAndDownloadPage extends PageBase {
     public boolean verifyDownload() {
         // Clicked -> files is download -> check file exists
 
-        String path = "/users/ilya/downloads/sampleFile.jpeg";
+        String home = System.getProperty("user.home");
+        String path = home+ "/Downloads/sampleFile.jpeg";
         File f = new File(path);
 
         if (f.exists()) {
@@ -38,13 +40,19 @@ public class UploadAndDownloadPage extends PageBase {
         return Boolean.FALSE;
     }
 
-    public UploadAndDownloadPage selectFile() {
-        uploadFile.sendKeys("/users/ilya/downloads/sampleFile.jpeg");
+    public UploadAndDownloadPage selectFile() throws IOException {
+        String home = System.getProperty("user.home");
+        String path = home+ "/Downloads/sampleFile.jpeg";
+        File file = new File(path);
+        try { file.createNewFile(); } catch (IOException e) {
+            System.out.println("File already exsited");
+        }
+        uploadFile.sendKeys(path);
         return this;
     }
 
     @FindBy(id="uploadedFilePath")
-    WebElement uploadedFilePath
+    WebElement uploadedFilePath;
 
 
     public boolean checkFileIsSelected() {

@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class UploadAndDownloadTest extends TestBase {
 
     @BeforeMethod
@@ -25,7 +27,7 @@ public class UploadAndDownloadTest extends TestBase {
     }
 
     @Test
-    public void selectFileToUpload() {
+    public void selectFileToUpload() throws IOException {
         // Step 1: Click on Download button
         // Expected result: File is downloaded locally
         Assert.assertTrue( new UploadAndDownloadPage(driver).selectFile().checkFileIsSelected() );
