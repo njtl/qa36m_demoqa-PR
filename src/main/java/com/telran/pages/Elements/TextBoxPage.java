@@ -56,7 +56,7 @@ public class TextBoxPage extends PageBase {
 
         String result = (String)contents.getTransferData(DataFlavor.stringFlavor);
 
-        if (result == TextBoxData.ADDRESS)
+        if (result.equals(TextBoxData.ADDRESS))
         {
             action.sendKeys(Keys.TAB);
             action.keyDown(cmdCtrl).sendKeys("v").keyUp(cmdCtrl).perform();

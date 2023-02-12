@@ -45,7 +45,7 @@ public class UploadAndDownloadPage extends PageBase {
         String path = home+ "/Downloads/sampleFile.jpeg";
         File file = new File(path);
         try { file.createNewFile(); } catch (IOException e) {
-            System.out.println("File already exsited");
+            System.out.println("File already existed");
         }
         uploadFile.sendKeys(path);
         return this;
