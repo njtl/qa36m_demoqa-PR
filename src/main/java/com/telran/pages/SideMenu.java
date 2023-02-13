@@ -7,6 +7,7 @@ import com.telran.pages.AlertsFramesWindowsPages.NestedFramesPage;
 import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
+import com.telran.pages.Elements.BrokenLinksImagesPage;
 import com.telran.pages.Elements.ButtonsPage;
 import com.telran.pages.Elements.TextBoxPage;
 import com.telran.pages.Elements.UploadAndDownloadPage;
@@ -110,5 +111,13 @@ public class SideMenu extends PageBase {
     public UploadAndDownloadPage openUploadandDownloadPage() {
         clickWithJSExecutor(uploadAndDownloadPageLink, 0, 300);
         return new UploadAndDownloadPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Broken Links - Images']")
+    WebElement brokenLinksImagesLink;
+
+    public BrokenLinksImagesPage openBrokenLinksImages() {
+        clickWithJSExecutor(brokenLinksImagesLink, 0, 250);
+        return new BrokenLinksImagesPage(driver);
     }
 }
