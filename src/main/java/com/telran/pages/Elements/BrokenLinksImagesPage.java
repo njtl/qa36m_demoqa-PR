@@ -45,11 +45,17 @@ public class BrokenLinksImagesPage extends PageBase {
     List<WebElement> links;
 
     public int checkNumberBrokenLinks() {
+        hideAds();
         int numberOfBrokenLinks = 0;
         for (int i=0; i < links.size(); i++)
         {
             WebElement link = links.get(i);
             String href = link.getAttribute("href");
+
+            if (href == null && link.getAttribute("id") == "close-fixedban") {
+                System.out.println("Link is strange, skipped by id: " + link.getAttribute("id"));
+                continue;
+            }
             int broken = 0;
             try {
                 broken = checkLink(href);

@@ -28,4 +28,5 @@ public class BrokenLinksImagesTest extends TestBase {
         Assert.assertEquals( new BrokenLinksImagesPage(driver).checkNumberBrokenLinks(), 0 );
     }
 
+    // href="#FirstArticle"
 }

@@ -11,6 +11,7 @@ import com.telran.pages.Elements.BrokenLinksImagesPage;
 import com.telran.pages.Elements.ButtonsPage;
 import com.telran.pages.Elements.TextBoxPage;
 import com.telran.pages.Elements.UploadAndDownloadPage;
+import com.telran.pages.Interactions.DroppablePage;
 import com.telran.pages.Widgets.SelectMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -119,5 +120,13 @@ public class SideMenu extends PageBase {
     public BrokenLinksImagesPage openBrokenLinksImages() {
         clickWithJSExecutor(brokenLinksImagesLink, 0, 250);
         return new BrokenLinksImagesPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Droppable']")
+    WebElement droppableLink;
+
+    public DroppablePage openDroppablePage() {
+        clickWithJSExecutor(droppableLink, 0, 350);
+        return new DroppablePage(driver);
     }
 }

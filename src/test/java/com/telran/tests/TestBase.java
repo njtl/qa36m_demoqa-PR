@@ -29,6 +29,7 @@ public class TestBase {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/");
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
