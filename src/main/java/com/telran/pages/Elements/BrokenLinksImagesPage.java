@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.IOException;
 import java.util.List;
 
 public class BrokenLinksImagesPage extends PageBase {
@@ -15,7 +16,7 @@ public class BrokenLinksImagesPage extends PageBase {
 
     @FindBy(tagName="img")
     List<WebElement> images;
-    public int checkNoBrokenImages() {
+    public int checkNumberBrokenImages() {
         hideAds();
 
         int numberOfBrokeLImages = 0;
@@ -40,4 +41,24 @@ public class BrokenLinksImagesPage extends PageBase {
         return numberOfBrokeLImages;
     }
 
+    @FindBy(tagName="a")
+    List<WebElement> links;
+
+    public int checkNumberBrokenLinks() {
+        int numberOfBrokenLinks = 0;
+        for (int i=0; i < links.size(); i++)
+        {
+            WebElement link = links.get(i);
+            String href = link.getAttribute("href");
+            int broken = 0;
+            try {
+                broken = checkLink(href);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            numberOfBrokenLinks = numberOfBrokenLinks + broken;
+            System.out.println("Link is broken: " + broken + ". URL: "+ href + ". Link element: " + link.getText());
+        }
+        return numberOfBrokenLinks;
+    }
 }

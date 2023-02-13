@@ -19,7 +19,13 @@ public class BrokenLinksImagesTest extends TestBase {
     // Title: Check page for broken images (not displayed, non-existent source)
     @Test
     public void checkBrokenImages() {
-        Assert.assertTrue( new BrokenLinksImagesPage(driver).checkNoBrokenImages()==0 );
+        Assert.assertEquals( new BrokenLinksImagesPage(driver).checkNumberBrokenImages(), 0 );
+    }
+
+    // Title: Check page for broken links (status code of the target link is >= 400)
+    @Test
+    public void checkBrokenLinks() {
+        Assert.assertEquals( new BrokenLinksImagesPage(driver).checkNumberBrokenLinks(), 0 );
     }
 
 }

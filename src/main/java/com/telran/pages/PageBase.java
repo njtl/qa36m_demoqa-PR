@@ -8,6 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class PageBase {
     public WebDriver driver;
@@ -86,5 +88,22 @@ public class PageBase {
             return cmdCtrl;
         }
         return null;
+    }
+
+    public int checkLink(String link) throws IOException {
+        try {
+            URL url = new URL(link);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setConnectTimeout(5000);
+            connection.connect();
+            if (connection.getResponseCode() >= 400)
+            {
+                return 1;
+            }
+            else { return 0; }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.toString());
+            return 1;
+        }
     }
 }
