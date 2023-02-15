@@ -7,10 +7,7 @@ import com.telran.pages.AlertsFramesWindowsPages.NestedFramesPage;
 import com.telran.pages.BookStore.BookStorePage;
 import com.telran.pages.BookStore.LoginPage;
 import com.telran.pages.BookStore.ProfilePage;
-import com.telran.pages.Elements.BrokenLinksImagesPage;
-import com.telran.pages.Elements.ButtonsPage;
-import com.telran.pages.Elements.TextBoxPage;
-import com.telran.pages.Elements.UploadAndDownloadPage;
+import com.telran.pages.Elements.*;
 import com.telran.pages.Interactions.DroppablePage;
 import com.telran.pages.Widgets.MenuPage;
 import com.telran.pages.Widgets.SelectMenuPage;
@@ -137,5 +134,16 @@ public class SideMenu extends PageBase {
     public MenuPage openMenu() {
         clickWithJSExecutor(menuPageLink, 0, 350);
         return new MenuPage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Radio Button']")
+    WebElement radioButtonLink;
+
+    public RadioButtonPage openRadioButton() {
+        clickWithJSExecutor(radioButtonLink, 0, 300);
+
+        return new RadioButtonPage(driver);
+
+
     }
 }
