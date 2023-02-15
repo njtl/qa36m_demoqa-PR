@@ -3,6 +3,7 @@ package com.telran.tests;
 import com.telran.pages.PageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
@@ -16,6 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -26,7 +28,20 @@ public class TestBase {
 
     @BeforeMethod
     public void init() {
+
+        /*
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("download.default_directory", "/users/ilya/documents");
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+        */
+
+        //ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+
+        //driver = new ChromeDriver(options);
         driver = new ChromeDriver();
+
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/");
 

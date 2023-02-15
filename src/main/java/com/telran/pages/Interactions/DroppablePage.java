@@ -35,6 +35,22 @@ public class DroppablePage extends PageBase {
 
     public DroppablePage testDroppableByOffset() {
 
+        Actions actions = new Actions(driver);
+
+        int xOffSetDraggable = draggable.getLocation().getX();
+        int yOffSetDraggable = draggable.getLocation().getY();
+
+        int xOffSetDroppable = droppable.getLocation().getX();
+        int yOffSetDroppable = droppable.getLocation().getY();
+
+        int xOffset = (xOffSetDroppable - xOffSetDraggable) +30;
+        int yOffset = (yOffSetDroppable - yOffSetDraggable) +30;
+
+
+        actions.dragAndDropBy(draggable, xOffset, yOffset).perform();
+
+        wait(1000);
+
         return this;
     }
 }
