@@ -12,6 +12,7 @@ import com.telran.pages.Elements.ButtonsPage;
 import com.telran.pages.Elements.TextBoxPage;
 import com.telran.pages.Elements.UploadAndDownloadPage;
 import com.telran.pages.Interactions.DroppablePage;
+import com.telran.pages.Widgets.MenuPage;
 import com.telran.pages.Widgets.SelectMenuPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -128,5 +129,13 @@ public class SideMenu extends PageBase {
     public DroppablePage openDroppablePage() {
         clickWithJSExecutor(droppableLink, 0, 350);
         return new DroppablePage(driver);
+    }
+
+    @FindBy(xpath = "//span[.='Menu']")
+    WebElement menuPageLink;
+
+    public MenuPage openMenu() {
+        clickWithJSExecutor(menuPageLink, 0, 350);
+        return new MenuPage(driver);
     }
 }
