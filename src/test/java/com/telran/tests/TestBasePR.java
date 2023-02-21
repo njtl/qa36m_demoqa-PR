@@ -2,6 +2,10 @@ package com.telran.tests;
 
 import com.microsoft.playwright.*;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 
 import java.awt.*;
